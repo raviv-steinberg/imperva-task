@@ -1,5 +1,7 @@
 package utils;
 
+import com.aventstack.extentreports.Status;
+
 import java.util.Locale;
 
 public final class OsCheck {
@@ -25,6 +27,7 @@ public final class OsCheck {
             else
                 detectedOS = OSType.Other;
         }
+
         return detectedOS;
     }
 }

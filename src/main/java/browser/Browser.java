@@ -61,10 +61,10 @@ public class Browser {
     }
 
     public static void open() throws Exception {
-
         // Define default browser.
         BrowserType browserType = BrowserType.Chrome;
         String browser = Utils.getProperty("browser");
+        ExtentReport.extentTest.log(Status.INFO, String.format("Require browser: '%s'", browser));
 
         // Read browser type from configuration file.
         String propertName = "";
@@ -82,14 +82,17 @@ public class Browser {
         switch (OsCheck.getOperatingSystemType()) {
             case Windows:
                 System.setProperty(propertName, Utils.getCurrentRootLocation() + "\\src\\main\\java\\drivers\\windows\\" + browserType.toString() + ".exe");
+                ExtentReport.extentTest.log(Status.INFO, "OS type: Windows");
                 break;
 
             case Mac:
                 System.setProperty(propertName, Utils.getCurrentRootLocation() + "/src/main/java/drivers/mac/" + browserType.toString());
+                ExtentReport.extentTest.log(Status.INFO, "OS type: MAC");
                 break;
 
             case Linux:
                 System.setProperty(propertName, Utils.getCurrentRootLocation() + "/src/main/java/drivers/linux/" + browserType.toString());
+                ExtentReport.extentTest.log(Status.INFO, "OS type: Linux");
                 break;
 
             case Other:
@@ -111,14 +114,20 @@ public class Browser {
         else if (browserType == BrowserType.Firefox)
             driver = new FirefoxDriver();
 
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        int timeOut = 30;
+        driver.manage().timeouts().pageLoadTimeout(timeOut, TimeUnit.SECONDS);
+        ExtentReport.extentTest.log(Status.INFO, String.format("Set page load timeout to %s seconds", timeOut));
+
         webDriverWait30Sec = new WebDriverWait(driver, 30);
         webDriverWait60Sec = new WebDriverWait(driver, 60);
         webDriverWait120Sec = new WebDriverWait(driver, 120);
         actions = new Actions(driver);
         javascriptExecutor = (JavascriptExecutor) driver;
         takesScreenshot = (TakesScreenshot) driver;
+
+        ExtentReport.extentTest.log(Status.INFO, "Maximize window");
         driver.manage().window().maximize();
+
     }
 
     public static void refresh() {

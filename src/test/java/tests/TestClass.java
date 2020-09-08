@@ -17,6 +17,7 @@ public class TestClass {
     @Before
     public void setup() throws Exception {
         ExtentReport.init();
+        ExtentReport.extentTest = ExtentReport.extentReports.createTest("Setup");
         Browser.open();
     }
 
