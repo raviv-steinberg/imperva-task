@@ -89,7 +89,7 @@ public class Utils {
 
             case Mac:
             case Linux:
-                location="./output/";
+                location="/output/";
                 break;
         }
 
@@ -105,7 +105,7 @@ public class Utils {
 
             case Mac:
             case Linux:
-                location="./order/";
+                location="/order/";
                 break;
         }
 
