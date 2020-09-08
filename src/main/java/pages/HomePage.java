@@ -233,7 +233,7 @@ public class HomePage {
     private void writeJson(JSONArray resultsList) throws IOException {
 
         //Write JSON file
-        String path = Utils.getCurrentRootLocation() + "\\output\\" + Utils.getProperty("jsonfile").replace("TimeStamp", Utils.getCurrentTimeStamp());
+        String path = Utils.getCurrentRootLocation() + Utils.getOutputPath() + Utils.getProperty("jsonfile").replace("TimeStamp", Utils.getCurrentTimeStamp());
         ExtentReport.extentTest.log(Status.INFO, String.format("Create new result file: \'%s\'", path));
         try (FileWriter file = new FileWriter(path, true)) {
             for (int i = 0; i < resultsList.size(); i++)
@@ -278,7 +278,7 @@ public class HomePage {
                 }
 
                 //Write JSON file
-                String path = Utils.getCurrentRootLocation() + "\\order\\" + Utils.getProperty("orderjsonfile").replace("TimeStamp", Utils.getCurrentTimeStamp());
+                String path = Utils.getCurrentRootLocation() + Utils.getOrderPath() + Utils.getProperty("orderjsonfile").replace("TimeStamp", Utils.getCurrentTimeStamp());
 
                 FileWriter file = new FileWriter(path, true);
                 ExtentReport.extentTest.log(Status.INFO, String.format("Create new JSON file: %s", path));

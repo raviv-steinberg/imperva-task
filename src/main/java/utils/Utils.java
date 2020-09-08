@@ -80,6 +80,38 @@ public class Utils {
         return  location;
     }
 
+    public static String getOutputPath(){
+        String location="";
+        switch (OsCheck.getOperatingSystemType()) {
+            case Windows:
+                location=".\\output\\";
+                break;
+
+            case Mac:
+            case Linux:
+                location="./output/";
+                break;
+        }
+
+        return  location;
+    }
+
+    public static String getOrderPath(){
+        String location="";
+        switch (OsCheck.getOperatingSystemType()) {
+            case Windows:
+                location=".\\order\\";
+                break;
+
+            case Mac:
+            case Linux:
+                location="./order/";
+                break;
+        }
+
+        return  location;
+    }
+
     public static String getScreenshotDirName(){
         String location="";
         switch (OsCheck.getOperatingSystemType()) {
