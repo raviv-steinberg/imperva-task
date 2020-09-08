@@ -84,7 +84,7 @@ public class Utils {
         String location="";
         switch (OsCheck.getOperatingSystemType()) {
             case Windows:
-                location=".\\output\\";
+                location="\\output\\";
                 break;
 
             case Mac:

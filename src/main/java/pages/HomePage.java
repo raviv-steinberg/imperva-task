@@ -248,7 +248,7 @@ public class HomePage {
     public void orderJSONFiles() {
         try {
             Thread.sleep(2000);
-            File directory = new File(Utils.getCurrentRootLocation() + "\\output\\");
+            File directory = new File(Utils.getCurrentRootLocation() + Utils.getOutputPath());
             File[] files = directory.listFiles();
 
             // Create JSON array list.
