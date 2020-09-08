@@ -33,8 +33,6 @@ public class TestClass {
     public void cleanup() throws Exception {
         ExtentReport.extentTest = ExtentReport.extentReports.createTest("Cleanup", "Clean system");
         Browser.close();
-        if (OsCheck.getOperatingSystemType() == OsCheck.OSType.Windows)
-            Utils.cmdKill();
         ExtentReport.extentReports.flush();
     }
 }
